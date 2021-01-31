@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ufo_flying.wav-41d2f121d19b7d320b3c9083a67720e7.sample"
+
+[deps]
+
+source_file="res://assets/sfx/ufo_flying.wav"
+dest_files=[ "res://.import/ufo_flying.wav-41d2f121d19b7d320b3c9083a67720e7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

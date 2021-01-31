@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/score_count.wav-673950e61c45f4ec7f0f3cf3036a32af.sample"
+
+[deps]
+
+source_file="res://assets/sfx/score_count.wav"
+dest_files=[ "res://.import/score_count.wav-673950e61c45f4ec7f0f3cf3036a32af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

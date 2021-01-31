@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/npc_wait.wav-bf78c310cbc8691528f0cc1ce5f1675b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/npc_wait.wav"
+dest_files=[ "res://.import/npc_wait.wav-bf78c310cbc8691528f0cc1ce5f1675b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

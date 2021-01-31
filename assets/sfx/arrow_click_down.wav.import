@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/arrow_click_down.wav-5cfbbd06e9507ce668bf92596c2b66d8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/arrow_click_down.wav"
+dest_files=[ "res://.import/arrow_click_down.wav-5cfbbd06e9507ce668bf92596c2b66d8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
