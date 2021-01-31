@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hazards/spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hazards/ufo.tscn" type="PackedScene" id=3]
+
+[node name="level_11" instance=ExtResource( 1 )]
+save_requirement = 10
+spawn_portals = false
+portal_lifetime = 60
+
+[node name="roads" parent="." index="1"]
+tile_data = PoolIntArray( -65526, 0, 0, 10, 0, 196608, 65546, 0, 196608, 131074, 0, 65538, 131075, 0, 4, 131076, 0, 3, 131077, 0, 3, 131078, 0, 2, 131079, 0, 4, 131080, 0, 4, 131081, 0, 3, 131082, 0, 65537, 131083, 0, 3, 131084, 0, 4, 131085, 0, 2, 131086, 0, 2, 131087, 0, 3, 131088, 0, 4, 131089, 0, 65539, 196610, 0, 131072, 196618, 0, 65536, 196625, 0, 196608, 262146, 0, 131072, 262153, 0, 1, 262154, 0, 131075, 262158, 0, 0, 262161, 0, 65536, 393215, 0, 1, 327680, 0, 4, 327681, 0, 3, 327682, 0, 65537, 327683, 0, 2, 327684, 0, 2, 327685, 0, 2, 327686, 0, 5, 327694, 0, 65536, 327697, 0, 65541, 327698, 0, 2, 327699, 0, 2, 327700, 0, 5, 393218, 0, 196608, 393224, 0, 65538, 393225, 0, 4, 393226, 0, 5, 393230, 0, 131072, 393233, 0, 196608, 458754, 0, 196608, 458760, 0, 65536, 458766, 0, 196608, 458769, 0, 65536, 524290, 0, 131074, 524291, 0, 3, 524292, 0, 2, 524293, 0, 2, 524294, 0, 65539, 524296, 0, 131072, 524298, 0, 65538, 524299, 0, 4, 524300, 0, 2, 524301, 0, 2, 524302, 0, 65540, 524303, 0, 2, 524304, 0, 4, 524305, 0, 131075, 589830, 0, 131074, 589831, 0, 2, 589832, 0, 65537, 589833, 0, 2, 589834, 0, 131075, 655368, 0, 196608, 720904, 0, 196608, 786440, 0, 262144 )
+
+[node name="spikes" parent="game_elements/hazards" index="0" instance=ExtResource( 2 )]
+position = Vector2( 152, 80 )
+
+[node name="spikes2" parent="game_elements/hazards" index="1" instance=ExtResource( 2 )]
+position = Vector2( 168, 112 )
+
+[node name="spikes3" parent="game_elements/hazards" index="2" instance=ExtResource( 2 )]
+position = Vector2( 232, 80 )
+
+[node name="spikes4" parent="game_elements/hazards" index="3" instance=ExtResource( 2 )]
+position = Vector2( 104, 96 )
+
+[node name="ufo" parent="game_elements/hazards" index="4" instance=ExtResource( 3 )]
+position = Vector2( 104, 48 )
+
+[node name="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="0"]
+position = Vector2( -8, 88 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="1"]
+position = Vector2( 328, 88 )
+rotation = 3.14159
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="2"]
+position = Vector2( 168, -8 )
+rotation = 3.14159
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="3"]
+position = Vector2( 136, 200 )
+rotation = 3.14159
+
+[node name="Position2D" parent="game_elements/npcs/target_spawn_position" index="0"]
+position = Vector2( 232, 88 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="1"]
+position = Vector2( 168, 72 )
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="2"]
+position = Vector2( 152, 104 )
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="3"]
+position = Vector2( 88, 88 )
+
+[node name="buildings" parent="game_elements" index="2"]
+tile_data = PoolIntArray( -65536, 1, 2, -65535, 1, 2, -65534, 1, 2, -65533, 2, 131073, -65531, 1, 2, -65530, 1, 2, -65529, 1, 2, -65528, 1, 2, -65527, 1, 2, -65525, 1, 2, -65524, 1, 2, -65523, 1, 2, -65522, 1, 2, -65521, 2, 131073, -65519, 1, 2, -65518, 1, 2, -65517, 1, 2, 0, 1, 2, 1, 1, 2, 18, 1, 2, 19, 1, 2, 65536, 1, 2, 65537, 1, 2, 65554, 1, 2, 65555, 1, 2, 131072, 1, 2, 131073, 1, 2, 131075, 2, 131073, 131079, 0, 0, 131080, 0, 0, 131083, 0, 0, 131084, 0, 0, 131087, 2, 131073, 131090, 1, 2, 131091, 1, 2, 196614, 0, 0, 196615, 2, 65536, 196619, 2, 65536, 262153, 0, 0, 262157, 0, 0, 262159, 0, 0, 262160, 0, 0, 327680, 1, 2, 327681, 1, 2, 327683, 2, 131073, 327687, 0, 0, 327691, 0, 0, 327692, 0, 0, 327695, 2, 131073, 327698, 1, 2, 327699, 1, 2, 393216, 1, 2, 393217, 1, 2, 393234, 1, 2, 393235, 1, 2, 458752, 1, 2, 458753, 1, 2, 458770, 1, 2, 524288, 1, 2, 524289, 1, 2, 524290, 1, 2, 524291, 2, 131073, 524293, 1, 2, 524299, 1, 2, 524300, 1, 2, 524301, 1, 2, 524302, 1, 2, 524303, 2, 131073, 524305, 1, 2, 524306, 1, 2, 524307, 1, 2, 655359, 1, 2, 589824, 1, 2, 589825, 1, 2, 589826, 1, 2, 589829, 1, 2, 589830, 1, 2, 589831, 1, 2, 589833, 1, 2, 589834, 1, 2, 589835, 1, 2, 589836, 1, 2, 589837, 1, 2, 589838, 1, 2, 589842, 1, 2, 589843, 1, 2, 720895, 1, 2, 655360, 1, 2, 655361, 1, 2, 655362, 1, 2, 655363, 1, 2, 655364, 1, 2, 655375, 1, 2, 655376, 1, 2, 655377, 1, 2, 655378, 1, 2, 655379, 1, 2, 720896, 1, 2, 720900, 1, 2, 720911, 1, 2, 720912, 1, 2, 720913, 1, 2, 720914, 1, 2, 720915, 1, 2, 917509, 0, 0, 917510, 0, 0 )
+
+[node name="rain" parent="." index="5"]
+visible = false
+
+[node name="clouds" parent="." index="6"]
+visible = true

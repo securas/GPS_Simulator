@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://npcs/line_to_target.gd" type="Script" id=1]
+
+[node name="line_to_target" type="Node2D"]
+modulate = Color( 0.776471, 0.243137, 0.243137, 0.682353 )
+z_index = 1
+script = ExtResource( 1 )

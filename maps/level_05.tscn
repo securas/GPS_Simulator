@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hazards/spikes.tscn" type="PackedScene" id=2]
+
+[node name="level_05" instance=ExtResource( 1 )]
+save_requirement = 15
+
+[node name="roads" parent="." index="1"]
+tile_data = PoolIntArray( 131076, 0, 65538, 131077, 0, 2, 131078, 0, 2, 131079, 0, 4, 131080, 0, 2, 131081, 0, 2, 131082, 0, 3, 131083, 0, 2, 131084, 0, 3, 131085, 0, 2, 131086, 0, 3, 131087, 0, 131077, 131088, 0, 4, 131089, 0, 3, 131090, 0, 3, 131091, 0, 4, 131092, 0, 3, 131093, 0, 5, 196612, 0, 196608, 196623, 0, 131072, 262148, 0, 65536, 262159, 0, 131072, 393214, 0, 1, 393215, 0, 2, 327680, 0, 4, 327681, 0, 3, 327682, 0, 2, 327683, 0, 3, 327684, 0, 65537, 327685, 0, 2, 327686, 0, 3, 327687, 0, 4, 327688, 0, 2, 327689, 0, 2, 327690, 0, 65539, 327695, 0, 196608, 393220, 0, 65536, 393226, 0, 131072, 393231, 0, 65536, 458756, 0, 131072, 458762, 0, 196608, 458767, 0, 196608, 524292, 0, 196608, 524298, 0, 196608, 524303, 0, 65536, 655358, 0, 1, 655359, 0, 4, 589824, 0, 4, 589825, 0, 4, 589826, 0, 4, 589827, 0, 3, 589828, 0, 65540, 589829, 0, 2, 589830, 0, 4, 589831, 0, 3, 589832, 0, 4, 589833, 0, 4, 589834, 0, 65540, 589835, 0, 2, 589836, 0, 4, 589837, 0, 3, 589838, 0, 4, 589839, 0, 65540, 589840, 0, 3, 589841, 0, 4, 589842, 0, 4, 589843, 0, 3, 589844, 0, 3, 589845, 0, 5 )
+
+[node name="spikes" parent="game_elements/hazards" index="0" instance=ExtResource( 2 )]
+position = Vector2( 168, 120 )
+
+[node name="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="0"]
+position = Vector2( -8, 88 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="1"]
+position = Vector2( 328, 40 )
+rotation = 3.14159
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="2"]
+position = Vector2( 328, 152 )
+rotation = 3.14159
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="3"]
+position = Vector2( -8, 152 )
+
+[node name="Position2D7" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="4"]
+position = Vector2( -24, 152 )
+
+[node name="Position2D8" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="5"]
+position = Vector2( -24, 88 )
+
+[node name="Position2D" parent="game_elements/npcs/target_spawn_position" index="0"]
+position = Vector2( 120, 40 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="1"]
+position = Vector2( 168, 88 )
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="2"]
+position = Vector2( 248, 104 )
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="3"]
+position = Vector2( 120, 152 )
+
+[node name="Position2D5" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="4"]
+position = Vector2( 200, 40 )
+
+[node name="buildings" parent="game_elements" index="2"]
+tile_data = PoolIntArray( -65522, 2, 1, -65518, 2, 0, 3, 0, 9, 4, 0, 9, 5, 0, 0, 6, 0, 3, 7, 0, 7, 8, 0, 9, 9, 0, 3, 10, 0, 0, 11, 0, 1, 13, 0, 6, 131074, 2, 65536, 131077, 1, 0, 131078, 0, 0, 131079, 0, 7, 131080, 0, 2, 131081, 0, 3, 131082, 0, 8, 131083, 2, 0, 131086, 1, 2, 131088, 1, 0, 131091, 0, 1, 196614, 0, 3, 196615, 0, 8, 196616, 0, 7, 196617, 0, 2, 196618, 0, 1, 262160, 0, 5, 327682, 2, 1, 327685, 1, 1, 327688, 2, 65537, 327692, 2, 131073, 327696, 0, 6, 393232, 2, 65536, 458753, 0, 1, 458754, 0, 0, 458755, 0, 8, 458757, 0, 3, 458758, 0, 4, 458759, 0, 8, 458760, 0, 6, 458761, 0, 0, 458770, 0, 4, 458771, 0, 4, 458772, 0, 2, 589825, 0, 6, 589826, 2, 1, 589828, 0, 1, 589829, 0, 3, 589830, 0, 2, 589831, 0, 1, 589832, 2, 0, 589834, 0, 8, 589835, 2, 0, 589837, 0, 7, 589838, 0, 3, 589839, 0, 0, 589840, 0, 4, 589841, 0, 3, 589842, 2, 1 )
+
+[node name="rain" parent="." index="5"]
+visible = false

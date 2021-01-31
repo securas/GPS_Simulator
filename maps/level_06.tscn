@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hazards/ufo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hazards/spikes.tscn" type="PackedScene" id=3]
+
+[node name="level_06" instance=ExtResource( 1 )]
+save_requirement = 10
+
+[node name="roads" parent="." index="1"]
+tile_data = PoolIntArray( 65547, 0, 0, 196607, 0, 1, 131072, 0, 4, 131073, 0, 2, 131074, 0, 2, 131075, 0, 131077, 131076, 0, 2, 131077, 0, 2, 131078, 0, 3, 131079, 0, 4, 131080, 0, 4, 131081, 0, 3, 131082, 0, 3, 131083, 0, 65537, 131084, 0, 3, 131085, 0, 3, 131086, 0, 4, 131087, 0, 131077, 131088, 0, 4, 131089, 0, 2, 131090, 0, 2, 131091, 0, 4, 131092, 0, 5, 196611, 0, 65536, 196619, 0, 196608, 196623, 0, 131072, 262147, 0, 65536, 262155, 0, 196608, 262159, 0, 196608, 327683, 0, 65541, 327684, 0, 3, 327685, 0, 3, 327686, 0, 4, 327687, 0, 131077, 327688, 0, 3, 327689, 0, 65539, 327691, 0, 131072, 327695, 0, 196608, 393219, 0, 65536, 393223, 0, 65536, 393225, 0, 131074, 393226, 0, 3, 393227, 0, 65540, 393228, 0, 3, 393229, 0, 3, 393230, 0, 2, 393231, 0, 131076, 458755, 0, 131072, 458759, 0, 131072, 458767, 0, 196608, 524291, 0, 65536, 524295, 0, 131072, 524303, 0, 131072, 655359, 0, 1, 589824, 0, 4, 589825, 0, 3, 589826, 0, 4, 589827, 0, 65540, 589828, 0, 2, 589829, 0, 3, 589830, 0, 4, 589831, 0, 65537, 589832, 0, 4, 589833, 0, 2, 589834, 0, 3, 589835, 0, 3, 589836, 0, 2, 589837, 0, 3, 589838, 0, 2, 589839, 0, 65540, 589840, 0, 2, 589841, 0, 3, 589842, 0, 2, 589843, 0, 4, 589844, 0, 5, 655367, 0, 262144 )
+
+[node name="spikes" parent="game_elements/hazards" index="0" instance=ExtResource( 3 )]
+position = Vector2( 56, 128 )
+
+[node name="spikes2" parent="game_elements/hazards" index="1" instance=ExtResource( 3 )]
+position = Vector2( 152, 96 )
+
+[node name="spikes3" parent="game_elements/hazards" index="2" instance=ExtResource( 3 )]
+position = Vector2( 248, 80 )
+
+[node name="ufo" parent="game_elements/hazards" index="3" instance=ExtResource( 2 )]
+position = Vector2( 120, 48 )
+
+[node name="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="0"]
+position = Vector2( -8, 40 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="1"]
+position = Vector2( 328, 40 )
+rotation = 3.14159
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="2"]
+position = Vector2( 328, 152 )
+rotation = 3.14159
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="3"]
+position = Vector2( -8, 152 )
+rotation = 6.28318
+
+[node name="Position2D" parent="game_elements/npcs/target_spawn_position" index="0"]
+position = Vector2( 120, 120 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="1"]
+position = Vector2( 184, 72 )
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="2"]
+position = Vector2( 120, 168 )
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="3"]
+position = Vector2( 184, 24 )
+
+[node name="buildings" parent="game_elements" index="2"]
+tile_data = PoolIntArray( -65527, 2, 0, -65524, 2, 1, 0, 0, 3, 1, 0, 1, 2, 0, 7, 3, 0, 0, 4, 0, 7, 5, 0, 6, 6, 0, 3, 7, 0, 0, 8, 0, 9, 14, 0, 8, 15, 0, 5, 16, 0, 6, 17, 0, 6, 18, 0, 6, 19, 0, 3, 20, 0, 1, 131073, 2, 131073, 131076, 2, 65536, 131084, 0, 0, 196614, 0, 5, 196615, 0, 1, 196616, 0, 8, 196621, 2, 131073, 196624, 0, 0, 262154, 0, 0, 262160, 1, 1, 327682, 0, 5, 327684, 0, 2, 327685, 0, 5, 327686, 0, 3, 327688, 1, 1, 393228, 0, 0, 393229, 2, 65537, 393232, 2, 0, 458754, 0, 0, 458758, 0, 7, 458760, 0, 5, 458761, 0, 8, 458762, 0, 3, 458763, 0, 9, 458770, 0, 2, 458771, 0, 3, 458772, 0, 6, 589824, 0, 1, 589825, 2, 65537, 589827, 0, 0, 589828, 0, 4, 589829, 0, 1, 589832, 0, 2, 589833, 0, 5, 589834, 0, 6, 589837, 0, 0, 589838, 0, 3, 589839, 0, 3, 589840, 0, 8, 589842, 0, 9, 589843, 0, 3, 589844, 0, 0 )
+
+[node name="rain" parent="." index="5"]
+visible = false

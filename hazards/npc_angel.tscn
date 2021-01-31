@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/spritesheet.png" type="Texture" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, -1.23744, 21.39, 1.23744, -21.39, 8, -32, -0.176777, 20.8597, 0.176777, -20.8597, -8, -96, -0.176777, 34.6482, 0.176777, -34.6482, 8, -160, -0.353553, 20.5061, 0.353553, -20.5061, -8, -224 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "cycle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 32, 224, 16, 16 ), Rect2( 48, 224, 16, 16 ), Rect2( 64, 224, 16, 16 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "run"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("path/follow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("path/follow/angel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.025 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="npc_angel" type="Node2D"]
+
+[node name="path" type="Path2D" parent="."]
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="follow" type="PathFollow2D" parent="path"]
+rotation = -0.726922
+rotate = false
+loop = false
+
+[node name="angel" type="Sprite" parent="path/follow"]
+rotation = 0.726922
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 224, 16, 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="anim" type="AnimationPlayer" parent="path/follow/angel"]
+autoplay = "cycle"
+anims/cycle = SubResource( 2 )
+
+[node name="mainain" type="AnimationPlayer" parent="."]
+autoplay = "run"
+playback_speed = 0.1
+anims/run = SubResource( 3 )

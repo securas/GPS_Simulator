@@ -1,0 +1,488 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://props/building_2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tileset_resources/roads_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://hazards/spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://maps/npcs.gd" type="Script" id=4]
+[ext_resource path="res://maps/hazards.gd" type="Script" id=5]
+[ext_resource path="res://assets/art/clouds.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/rain.png" type="Texture" id=7]
+[ext_resource path="res://hazards/ufo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://props/building_3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://props/building_4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://props/building_6.tscn" type="PackedScene" id=11]
+[ext_resource path="res://props/building_7.tscn" type="PackedScene" id=12]
+[ext_resource path="res://props/building_9.tscn" type="PackedScene" id=13]
+[ext_resource path="res://props/building.tscn" type="PackedScene" id=14]
+[ext_resource path="res://props/building_1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://props/building_8.tscn" type="PackedScene" id=16]
+[ext_resource path="res://props/building_10.tscn" type="PackedScene" id=17]
+[ext_resource path="res://props/building_5.tscn" type="PackedScene" id=18]
+[ext_resource path="res://props/building_11.tscn" type="PackedScene" id=19]
+[ext_resource path="res://props/building_12.tscn" type="PackedScene" id=20]
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 11
+octaves = 1
+period = 38.4
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 16
+octaves = 1
+period = 28.2
+
+[sub_resource type="NoiseTexture" id=4]
+noise = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 160, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="CanvasItemMaterial" id=6]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 160, 90, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 100, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+anim_speed = 4.0
+anim_speed_random = 0.2
+anim_offset = 0.09
+anim_offset_random = 0.5
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 512, 512 ), Rect2( 512, 0, 512, 512 ) ]
+}
+
+[node name="base_map" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="roads" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -65521, 0, 0, 15, 0, 65536, 65551, 0, 196608, 196607, 0, 1, 131072, 0, 4, 131073, 0, 4, 131074, 0, 2, 131075, 0, 2, 131076, 0, 4, 131077, 0, 3, 131078, 0, 3, 131079, 0, 2, 131080, 0, 4, 131081, 0, 4, 131082, 0, 131077, 131083, 0, 2, 131084, 0, 3, 131085, 0, 2, 131086, 0, 4, 131087, 0, 65537, 131088, 0, 4, 131089, 0, 4, 131090, 0, 4, 131091, 0, 4, 131092, 0, 5, 196618, 0, 131072, 196623, 0, 65536, 262154, 0, 65536, 262159, 0, 131072, 327684, 0, 65538, 327685, 0, 2, 327686, 0, 4, 327687, 0, 3, 327688, 0, 4, 327689, 0, 3, 327690, 0, 131076, 327695, 0, 65536, 393220, 0, 131072, 393226, 0, 65536, 393231, 0, 196608, 458756, 0, 65536, 458762, 0, 131074, 458763, 0, 4, 458764, 0, 3, 458765, 0, 4, 458766, 0, 2, 458767, 0, 65537, 458768, 0, 4, 458769, 0, 4, 458770, 0, 4, 458771, 0, 3, 458772, 0, 5, 524292, 0, 131072, 524303, 0, 196608, 655359, 0, 1, 589824, 0, 3, 589825, 0, 2, 589826, 0, 2, 589827, 0, 3, 589828, 0, 131076, 589839, 0, 65536, 655364, 0, 65536, 655375, 0, 65536, 720900, 0, 196608, 720911, 0, 196608, 786436, 0, 262144, 786447, 0, 262144 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="game_elements" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hazards" type="YSort" parent="game_elements"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spikes" parent="game_elements/hazards" instance=ExtResource( 3 )]
+position = Vector2( 216, 128 )
+
+[node name="ufo" parent="game_elements/hazards" instance=ExtResource( 8 )]
+position = Vector2( 248, 144 )
+
+[node name="npcs" type="YSort" parent="game_elements"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="npc_spawn_positions" type="Node2D" parent="game_elements/npcs"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( 328, 120 )
+rotation = 3.14159
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( 328, 40 )
+rotation = 3.14159
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( 248, -8 )
+rotation = 1.57079
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( 248, 200 )
+rotation = 4.71238
+
+[node name="Position2D5" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( 72, 200 )
+rotation = 4.71238
+
+[node name="Position2D6" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( -8, 152 )
+rotation = 6.28318
+
+[node name="Position2D7" type="Position2D" parent="game_elements/npcs/npc_spawn_positions"]
+position = Vector2( -8, 40 )
+rotation = 6.28318
+
+[node name="target_spawn_position" type="Node2D" parent="game_elements/npcs"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 104, 40 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 216, 40 )
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 232, 120 )
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 72, 120 )
+
+[node name="Position2D5" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 168, 120 )
+
+[node name="Position2D6" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 248, 152 )
+
+[node name="Position2D7" type="Position2D" parent="game_elements/npcs/target_spawn_position"]
+position = Vector2( 40, 152 )
+
+[node name="props" type="YSort" parent="game_elements"]
+z_index = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="building_1" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 152, 80 )
+
+[node name="building_2" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 56, 144 )
+
+[node name="building_3" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 232, 112 )
+
+[node name="building_4" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 136, 80 )
+
+[node name="building_6" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 216, 112 )
+
+[node name="building_7" parent="game_elements/props" instance=ExtResource( 12 )]
+position = Vector2( 272, 112 )
+
+[node name="building_9" parent="game_elements/props" instance=ExtResource( 13 )]
+position = Vector2( 304, 112 )
+
+[node name="building_8" parent="game_elements/props" instance=ExtResource( 16 )]
+position = Vector2( 144, 128 )
+
+[node name="building_10" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 56, 128 )
+
+[node name="building_5" parent="game_elements/props" instance=ExtResource( 18 )]
+position = Vector2( 40, 144 )
+
+[node name="building_11" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 152, 64 )
+
+[node name="building_12" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 96, 128 )
+
+[node name="building_13" parent="game_elements/props" instance=ExtResource( 13 )]
+position = Vector2( 48, 192 )
+
+[node name="building_14" parent="game_elements/props" instance=ExtResource( 18 )]
+position = Vector2( 24, 192 )
+
+[node name="building_15" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 184, 112 )
+
+[node name="building_17" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 200, 112 )
+
+[node name="building" parent="game_elements/props" instance=ExtResource( 14 )]
+position = Vector2( 264, 144 )
+
+[node name="building_16" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 168, 144 )
+
+[node name="building_18" parent="game_elements/props" instance=ExtResource( 18 )]
+position = Vector2( 264, 80 )
+
+[node name="building_20" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 272, 32 )
+
+[node name="building_19" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 328, 80 )
+
+[node name="building_21" parent="game_elements/props" instance=ExtResource( 13 )]
+position = Vector2( 16, 32 )
+
+[node name="building_22" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 48, 32 )
+
+[node name="building_23" parent="game_elements/props" instance=ExtResource( 12 )]
+position = Vector2( 80, 32 )
+
+[node name="building_24" parent="game_elements/props" instance=ExtResource( 12 )]
+position = Vector2( 224, 160 )
+
+[node name="building_25" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 72, 80 )
+
+[node name="building_26" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 88, 80 )
+
+[node name="building_27" parent="game_elements/props" instance=ExtResource( 12 )]
+position = Vector2( 16, 144 )
+
+[node name="building_28" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 8, 176 )
+
+[node name="building_29" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 8, 192 )
+
+[node name="building_30" parent="game_elements/props" instance=ExtResource( 13 )]
+position = Vector2( 112, 80 )
+
+[node name="building_31" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 128, 32 )
+
+[node name="building_32" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 184, 96 )
+
+[node name="building_33" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 184, 64 )
+
+[node name="building_34" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 328, 112 )
+
+[node name="building_35" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 232, 32 )
+
+[node name="building_36" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 296, 32 )
+
+[node name="building_37" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 104, 32 )
+
+[node name="building_38" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 120, 112 )
+
+[node name="building_39" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 120, 128 )
+
+[node name="building_40" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 88, 160 )
+
+[node name="building_41" parent="game_elements/props" instance=ExtResource( 12 )]
+position = Vector2( 96, 192 )
+
+[node name="building_43" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 184, 144 )
+
+[node name="building_44" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 200, 160 )
+
+[node name="building_45" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 232, 80 )
+
+[node name="building_46" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 232, 96 )
+
+[node name="building_47" parent="game_elements/props" instance=ExtResource( 16 )]
+position = Vector2( 16, 80 )
+
+[node name="building_48" parent="game_elements/props" instance=ExtResource( 16 )]
+position = Vector2( 288, 80 )
+
+[node name="building_49" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 312, 80 )
+
+[node name="building_50" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 320, 32 )
+
+[node name="building_51" parent="game_elements/props" instance=ExtResource( 15 )]
+position = Vector2( 40, 64 )
+
+[node name="building_52" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 72, 64 )
+
+[node name="building_53" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 56, 80 )
+
+[node name="building_54" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 56, 96 )
+
+[node name="building_58" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 144, 160 )
+
+[node name="building_42" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 16, 112 )
+
+[node name="building_55" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 112, 160 )
+
+[node name="building_56" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 128, 192 )
+
+[node name="building_57" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 176, 176 )
+
+[node name="building_59" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 208, 192 )
+
+[node name="building_60" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 160, 192 )
+
+[node name="building_62" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 208, 32 )
+
+[node name="building_63" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 208, 80 )
+
+[node name="building_65" parent="game_elements/props" instance=ExtResource( 11 )]
+position = Vector2( 264, 176 )
+
+[node name="building_64" parent="game_elements/props" instance=ExtResource( 10 )]
+position = Vector2( 232, 192 )
+
+[node name="building_61" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 40, 80 )
+
+[node name="building_66" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 40, 112 )
+
+[node name="building_67" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 40, 96 )
+
+[node name="building_68" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 184, 192 )
+
+[node name="building_69" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 184, 80 )
+
+[node name="building_70" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 152, 16 )
+
+[node name="building_71" parent="game_elements/props" instance=ExtResource( 20 )]
+position = Vector2( 232, 16 )
+
+[node name="building_72" parent="game_elements/props" instance=ExtResource( 9 )]
+position = Vector2( 264, 192 )
+
+[node name="building_73" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 288, 160 )
+
+[node name="building_74" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 320, 160 )
+
+[node name="building_75" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 288, 192 )
+
+[node name="building_76" parent="game_elements/props" instance=ExtResource( 19 )]
+position = Vector2( 320, 192 )
+
+[node name="building_77" parent="game_elements/props" instance=ExtResource( 17 )]
+position = Vector2( 176, 32 )
+
+[node name="building_78" parent="game_elements/props" instance=ExtResource( 1 )]
+position = Vector2( 152, 32 )
+
+[node name="noise" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 0.137255 )
+material = SubResource( 9 )
+position = Vector2( 176, 72 )
+texture = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="noise2" type="Sprite" parent="."]
+modulate = Color( 0.537255, 1, 0.152941, 0.129412 )
+material = SubResource( 10 )
+position = Vector2( 176, 72 )
+texture = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="rain" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 160, 0 )
+z_index = 100
+amount = 250
+lifetime = 3.5
+preprocess = 60.0
+process_material = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="rain_floor" type="Particles2D" parent="."]
+visible = false
+material = SubResource( 6 )
+position = Vector2( 160, 90 )
+amount = 250
+lifetime = 3.0
+preprocess = 60.0
+process_material = SubResource( 7 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="clouds" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.239216 )
+position = Vector2( 176, 72 )
+z_index = 100
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="clouds"]
+autoplay = "cycle"
+playback_speed = 0.01
+anims/cycle = SubResource( 8 )

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hazards/spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hazards/ufo.tscn" type="PackedScene" id=3]
+
+[node name="level_21" instance=ExtResource( 1 )]
+time_left = 25
+save_requirement = 1
+spawn_portals = false
+
+[node name="roads" parent="." index="1"]
+tile_data = PoolIntArray( 131079, 0, 65538, 131080, 0, 2, 131081, 0, 2, 131082, 0, 65539, 196615, 0, 196608, 196618, 0, 196608, 196624, 0, 65538, 196625, 0, 4, 196626, 0, 2, 196627, 0, 4, 196628, 0, 5, 262151, 0, 196608, 262154, 0, 131072, 262160, 0, 196608, 327682, 0, 1, 327683, 0, 4, 327684, 0, 131077, 327685, 0, 4, 327686, 0, 2, 327687, 0, 65537, 327688, 0, 2, 327689, 0, 4, 327690, 0, 65537, 327691, 0, 2, 327692, 0, 2, 327693, 0, 131077, 327694, 0, 3, 327695, 0, 3, 327696, 0, 131076, 393220, 0, 65536, 393223, 0, 196608, 393226, 0, 131072, 393229, 0, 131072, 393232, 0, 65536, 458756, 0, 65536, 458759, 0, 196608, 458762, 0, 196608, 458765, 0, 65536, 458768, 0, 131074, 458769, 0, 2, 458770, 0, 2, 458771, 0, 4, 458772, 0, 5, 524292, 0, 131074, 524293, 0, 3, 524294, 0, 4, 524295, 0, 131075, 524298, 0, 131074, 524299, 0, 4, 524300, 0, 3, 524301, 0, 131075 )
+
+[node name="spikes" parent="game_elements/hazards" index="0" instance=ExtResource( 2 )]
+position = Vector2( 184, 96 )
+
+[node name="spikes2" parent="game_elements/hazards" index="1" instance=ExtResource( 2 )]
+position = Vector2( 136, 96 )
+
+[node name="spikes3" parent="game_elements/hazards" index="2" instance=ExtResource( 2 )]
+position = Vector2( 88, 96 )
+
+[node name="ufo" parent="game_elements/hazards" index="3" instance=ExtResource( 3 )]
+position = Vector2( 96, 144 )
+lifetime = 6.0
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="1"]
+position = Vector2( 328, 56 )
+
+[node name="Position2D" parent="game_elements/npcs/target_spawn_position" index="0"]
+position = Vector2( 40, 88 )
+
+[node name="buildings" parent="game_elements" index="2"]
+tile_data = PoolIntArray( 8, 0, 7, 9, 0, 3, 17, 2, 1, 131075, 2, 0, 131080, 2, 65537, 131084, 1, 2, 196608, 2, 131073, 196613, 0, 9, 196621, 0, 9, 196622, 0, 6, 262162, 1, 1, 327685, 2, 65536, 327692, 0, 5, 393227, 0, 0, 458769, 0, 2, 524293, 0, 0, 524294, 0, 8, 524299, 0, 1, 524300, 0, 0 )
+
+[node name="rain" parent="." index="5"]
+visible = false

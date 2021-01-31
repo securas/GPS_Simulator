@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/base_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hazards/ufo.tscn" type="PackedScene" id=2]
+
+[node name="level_04" instance=ExtResource( 1 )]
+save_requirement = 15
+
+[node name="roads" parent="." index="1"]
+tile_data = PoolIntArray( -65533, 0, 0, -65527, 0, 0, -65521, 0, 0, 3, 0, 196608, 9, 0, 131072, 15, 0, 131072, 65539, 0, 131072, 65545, 0, 65536, 65551, 0, 65536, 131075, 0, 196608, 131081, 0, 196608, 131087, 0, 196608, 196611, 0, 196608, 196617, 0, 65536, 196623, 0, 131072, 262147, 0, 65541, 262148, 0, 2, 262149, 0, 2, 262150, 0, 3, 262151, 0, 3, 262152, 0, 4, 262153, 0, 65540, 262154, 0, 4, 262155, 0, 2, 262156, 0, 3, 262157, 0, 3, 262158, 0, 3, 262159, 0, 131076, 327683, 0, 131072, 327695, 0, 131072, 393219, 0, 131072, 393231, 0, 65536, 458755, 0, 131072, 458767, 0, 196608, 524291, 0, 131074, 524292, 0, 3, 524293, 0, 3, 524294, 0, 4, 524295, 0, 4, 524296, 0, 3, 524297, 0, 131077, 524298, 0, 2, 524299, 0, 2, 524300, 0, 2, 524301, 0, 4, 524302, 0, 4, 524303, 0, 65540, 524304, 0, 4, 524305, 0, 4, 524306, 0, 4, 524307, 0, 4, 524308, 0, 5, 589833, 0, 196608, 655369, 0, 196608, 720905, 0, 131072, 786441, 0, 262144 )
+
+[node name="ufo" parent="game_elements/hazards" index="0" instance=ExtResource( 2 )]
+position = Vector2( 88, 144 )
+lifetime = 5.0
+
+[node name="ufo2" parent="game_elements/hazards" index="1" instance=ExtResource( 2 )]
+position = Vector2( 248, 120 )
+lifetime = 5.0
+
+[node name="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="0"]
+position = Vector2( 56, -8 )
+rotation = 1.57079
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="1"]
+position = Vector2( 152, -8 )
+rotation = 1.57079
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="2"]
+position = Vector2( 248, -8 )
+rotation = 1.57079
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="3"]
+position = Vector2( 328, 136 )
+rotation = 3.14159
+
+[node name="Position2D5" type="Position2D" parent="game_elements/npcs/npc_spawn_positions" index="4"]
+position = Vector2( 152, 184 )
+rotation = 4.71238
+
+[node name="Position2D" parent="game_elements/npcs/target_spawn_position" index="0"]
+position = Vector2( 104, 72 )
+
+[node name="Position2D2" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="1"]
+position = Vector2( 104, 136 )
+
+[node name="Position2D3" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="2"]
+position = Vector2( 208, 136 )
+
+[node name="Position2D4" type="Position2D" parent="game_elements/npcs/target_spawn_position" index="3"]
+position = Vector2( 184, 72 )
+
+[node name="buildings" parent="game_elements" index="2"]
+tile_data = PoolIntArray( -65532, 1, 0, 1, 2, 1, 8, 1, 2, 14, 1, 0, 65540, 1, 2, 65546, 0, 1, 65547, 1, 0, 65552, 0, 1, 131074, 1, 0, 131078, 0, 7, 131079, 0, 9, 131080, 0, 9, 131082, 0, 9, 131084, 0, 8, 131085, 0, 3, 131086, 0, 5, 131088, 0, 9, 196624, 2, 0, 262146, 1, 1, 262148, 0, 3, 262149, 0, 5, 262150, 0, 9, 262154, 0, 5, 262155, 0, 9, 262156, 0, 5, 327684, 1, 0, 327686, 1, 2, 327687, 2, 65536, 327689, 2, 65537, 327694, 1, 1, 327696, 1, 0, 327697, 2, 131073, 393218, 1, 2, 393221, 0, 0, 393227, 0, 2, 393228, 0, 6, 393229, 0, 4, 524292, 0, 1, 524293, 0, 4, 524294, 0, 7, 524295, 2, 65537, 524298, 1, 1, 524299, 0, 9, 524300, 0, 7, 524301, 0, 2, 524302, 0, 1, 524303, 0, 1, 524304, 0, 0, 524305, 2, 65537, 524307, 1, 1, 655368, 0, 1 )
+
+[node name="clouds" parent="." index="6"]
+visible = true
